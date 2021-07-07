@@ -5,7 +5,7 @@ import java.util.Objects;
 public class Location {
     private static int nextId = 1;
 
-    private int id;
+    private final int id;
     private String value;
 
     public Location() {
@@ -14,9 +14,11 @@ public class Location {
     }
 
     // TODO: Add a constructor that takes a string as a parameter and assigns it to the 'value' field. The constructors should also call the empty constructor in order to initialize the 'id' field.
-
-    // Custom toString, equals, and hashCode methods:
-
+    public Location(String value) {
+        this();
+        this.value = value;
+    }
+    // Custom toString, equals, and hashCode Methods:
     @Override
     public String toString() { return this.value; }
 
@@ -34,7 +36,6 @@ public class Location {
     }
 
     // Getters and Setters:
-
     public int getId() { return this.id; }
 
     public String getValue() { return this.value; }
