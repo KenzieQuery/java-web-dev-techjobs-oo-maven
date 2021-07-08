@@ -1,41 +1,24 @@
 package com.company;
-
-public class PositionType {
-    private static int nextId = 1;
-
-    private int id;
-    private String value;
-
+import java.util.Objects;
+public class PositionType extends JobField{
     public PositionType() {
-        id = nextId;
-        nextId++;
+        super();
     }
-
     public PositionType(String value) {
-        this();
-        this.value = value;
+        super(value);
     }
-
     // TODO: Add a custom toString() method that returns the data stored in 'value'.
-    @Override
-    public String toString() { return this.value; }
+    //toString and hashCode were moved to JobField Class
     // TODO: Add custom equals and hashCode methods. Consider two PositionType objects "equal" when their id fields match.
+    @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        PositionType that = (PositionType) o;
-        return id == that.id;
-    }
-
-    @Override
-    public int hashCode() {
-        return super.hashCode();
+        if (!(o instanceof PositionType)) return false;
+        PositionType position = (PositionType) o;
+        return this.getId() == position.getId();
     }
     // Getters and Setters:
-
-    public int getId() { return this.id; };
-
-    public String getValue() { return this.value; }
-
-    public void setValue(String value) { this.value = value; }
+//    public int getId() { return this.id; };
+//    public String getValue() { return this.value; }
+//    public void setValue(String value) { this.value = value; }
 }
