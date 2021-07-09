@@ -14,8 +14,15 @@ public abstract class JobField {
         this.value = value;
     }
     //Methods equals, hashCode, and toString
+//    @Override
+//    public abstract boolean equals(Object o);
     @Override
-    public abstract boolean equals(Object o);
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof JobField)) return false;
+        JobField that = (JobField) o;
+        return this.getId() == that.getId();
+    }
     @Override
     public int hashCode() {
         return Objects.hash(id);
@@ -34,4 +41,5 @@ public abstract class JobField {
     public void setValue(String value) {
         this.value = value;
     }
+
 }
